@@ -28,7 +28,7 @@ jobs:
       - name: Build the project
         env:
           REACT_APP_GROQ_API_KEY: ${{ secrets.REACT_APP_GROQ_API_KEY }}  # Accessing the API key stored in GitHub secrets
-          CI: false  
+          CI: ""  
         run: npm run build
 
       # Step 5: Deploy to GitHub Pages using gh-pages
