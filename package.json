@@ -1,6 +1,7 @@
 {
   "name": "chatbot",
   "version": "0.1.0",
+  "homepage": "https://hulkmania40.github.io/chatbot",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.13.3",
