@@ -1,22 +1,44 @@
+.chat_container {
+    max-height: "80vh";
+    overflow-y: "auto";
+
+    &_mr_8{
+        margin-right: 8px !important;
+    }
+    &_ml_35{
+        margin-left: 35px !important;
+    }
+}
+
 .float_down {
-    animation: float 1s ease-in-out forwards; /* Animation for the floating effect */
-    position: sticky; /* Keep the element sticky */
-    bottom: 0; /* Stick to the bottom of the viewport */
-    background-color: white; /* Background color to cover content underneath */
-    padding: 10px; /* Some padding for aesthetics */
-    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Optional shadow for better visibility */
-    z-index: 1000; /* Ensure it stays above other content */
+    animation: float 1s ease-in-out forwards;
+    /* Animation for the floating effect */
+    position: sticky;
+    /* Keep the element sticky */
+    bottom: 0;
+    /* Stick to the bottom of the viewport */
+    background-color: white;
+    /* Background color to cover content underneath */
+    padding: 10px;
+    /* Some padding for aesthetics */
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+    /* Optional shadow for better visibility */
+    z-index: 1000;
+    /* Ensure it stays above other content */
 }
 
 @keyframes float {
     0% {
-        transform: translateY(15vh); /* Start position (below the viewport) */
-        opacity: 0; /* Start invisible */
+        transform: translateY(15vh);
+        /* Start position (below the viewport) */
+        opacity: 0;
+        /* Start invisible */
     }
+
     100% {
-        transform: translateY(0); /* End position (original position) */
-        opacity: 1; /* Fully visible */
+        transform: translateY(0);
+        /* End position (original position) */
+        opacity: 1;
+        /* Fully visible */
     }
 }
-
-  

@@ -1,10 +1,11 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Groq from "groq-sdk";
 import MessageInput from "../MessageInput/MessageInput";
 import { PulseLoader } from "react-spinners";
-import styles from "./ChatComponent.module.scss";
 import classNames from "classnames";
 import { Col, Row } from "reactstrap";
+import { Face, SmartToyOutlined } from "@mui/icons-material";
+import styles from "./ChatComponent.module.scss";
 
 const groq = new Groq({
   apiKey: process.env.REACT_APP_GROQ_API_KEY,
@@ -75,26 +76,37 @@ const ChatComponent = (props: ChatComponentProps) => {
     }
   };
 
+  const convertStarToStrong = (inputString:string) => {
+    return inputString.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>");
+  }
+
   return (
-    <div className="my-3" style={{ maxHeight: "80vh", overflowY: "auto" }}>
+    <div className={classNames("my-3", styles.chat_container)}>
       {messages.map((msg, index) => (
-        <Row className="my-4 mx-4">
+        <Row key={index} className="my-4 mx-4">
           {msg.role === "user" && <Col md={2}></Col>}
           <Col md={10} key={index} className={msg.role}>
-            <strong>{msg.role === "user" ? "You" : "AI"}:</strong> {msg.content}
+            {msg.role === "user" ? (
+              <Face className={styles.chat_container_mr_8} />
+            ) : (
+              <SmartToyOutlined className={styles.chat_container_mr_8} />
+            )}
+            <span
+              dangerouslySetInnerHTML={{
+                __html: convertStarToStrong(msg.content),
+              }}
+            />
           </Col>
           {msg.role === "assistant" && <Col md={2}></Col>}
         </Row>
       ))}
-      {responseLoading && (
-        <PulseLoader
-          className="my-3"
-          loading={responseLoading}
-          size={10}
-          aria-label="Loading Spinner"
-          data-testid="loader"
-        />
-      )}
+      <PulseLoader
+        className={classNames("my-3", styles.chat_container_ml_35)}
+        loading={responseLoading}
+        size={10}
+        aria-label="Loading Spinner"
+        data-testid="loader"
+      />
       <div ref={bottomRef} />
       <div className={classNames("my-3", isAnimation ? "" : "")}>
         <MessageInput onSubmit={onSubmit} />
