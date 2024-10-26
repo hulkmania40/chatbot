@@ -23,6 +23,8 @@ jobs:
       # Step 3: Install dependencies
       - name: Install dependencies
         run: npm install
+        env:
+         CI: ""
 
       # Step 4: Build the project with environment variables
       - name: Build the project
