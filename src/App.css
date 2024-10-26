@@ -1,0 +1,11 @@
+.user{
+    display: flex;
+    justify-content: flex-end;
+    color: black;
+}
+
+.assistant {
+    display: flex;
+    justify-content: flex-start;
+    color: black;
+}

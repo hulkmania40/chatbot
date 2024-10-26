@@ -1,0 +1,24 @@
+.searchInput {
+  border-radius: 8px; // Rounded corners
+
+  .MuiOutlinedInput-root {
+    border: 1px solid #ccc; // Default border color
+    transition: border-color 0.3s; // Smooth transition for border color
+
+    &:hover {
+      border-color: #1976d2; // Border color on hover
+    }
+
+    &.Mui-focused {
+      border-color: #1976d2; // Border color when focused
+    }
+  }
+
+  .MuiInputBase-input {
+    padding: 12px 14px; // Inner padding for input
+  }
+
+  .MuiInputAdornment-root {
+    color: #1976d2; // Color for the search icon
+  }
+}
