@@ -4,6 +4,10 @@ import classNames from "classnames";
 import { Container } from "reactstrap";
 import "./App.css";
 import ChatComponent from "./components/ChatComponent/ChatComponent";
+import ReactGA from 'react-ga';
+
+const TRACKING_ID = "G-V5M2QYMX0S";
+ReactGA.initialize(TRACKING_ID);
 
 const App: React.FC = () => {
   const [isAnimating, setIsAnimating] = useState(false);
